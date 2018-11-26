@@ -1,0 +1,26 @@
+c:\users\temp.dom201.000\documents\visual studio 2015\Projects\Example23\Example23\bin\Debug\Example23.exe.config
+C:\Users\TEMP.DOM201.000\documents\visual studio 2015\Projects\Example23\Example23\bin\Debug\Example23.exe
+C:\Users\TEMP.DOM201.000\documents\visual studio 2015\Projects\Example23\Example23\bin\Debug\Example23.pdb
+C:\Users\TEMP.DOM201.000\documents\visual studio 2015\Projects\Example23\Example23\bin\Debug\Newtonsoft.Json.dll
+C:\Users\TEMP.DOM201.000\documents\visual studio 2015\Projects\Example23\Example23\bin\Debug\Newtonsoft.Json.xml
+C:\Users\TEMP.DOM201.000\documents\visual studio 2015\Projects\Example23\Example23\obj\Debug\Example23.csprojResolveAssemblyReference.cache
+C:\Users\TEMP.DOM201.000\documents\visual studio 2015\Projects\Example23\Example23\obj\Debug\Example23.exe
+C:\Users\TEMP.DOM201.000\documents\visual studio 2015\Projects\Example23\Example23\obj\Debug\Example23.pdb
+F:\C#\Example23\Example23\bin\Debug\Example23.exe.config
+F:\C#\Example23\Example23\obj\Debug\Example23.exe
+F:\C#\Example23\Example23\obj\Debug\Example23.pdb
+F:\C#\Example23\Example23\bin\Debug\Example23.exe
+F:\C#\Example23\Example23\bin\Debug\Example23.pdb
+F:\C#\Example23\Example23\bin\Debug\Newtonsoft.Json.dll
+F:\C#\Example23\Example23\bin\Debug\Newtonsoft.Json.xml
+F:\C#\Example23\Example23\obj\Debug\Example23.csprojResolveAssemblyReference.cache
+D:\Старый комп\Флэха\C#\Example23\Example23\bin\Debug\Example23.exe.config
+D:\Старый комп\Флэха\C#\Example23\Example23\bin\Debug\Example23.exe
+D:\Старый комп\Флэха\C#\Example23\Example23\bin\Debug\Example23.pdb
+D:\Старый комп\Флэха\C#\Example23\Example23\bin\Debug\Newtonsoft.Json.dll
+D:\Старый комп\Флэха\C#\Example23\Example23\bin\Debug\Newtonsoft.Json.xml
+D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\Example23.csprojAssemblyReference.cache
+D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\Example23.csproj.CoreCompileInputs.cache
+D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\Example23.csproj.CopyComplete
+D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\Example23.exe
+D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\Example23.pdb

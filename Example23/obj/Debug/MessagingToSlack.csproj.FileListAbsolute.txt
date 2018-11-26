@@ -1,0 +1,10 @@
+D:\Старый комп\Флэха\C#\Example23\Example23\bin\Debug\Example23.exe.config
+D:\Старый комп\Флэха\C#\Example23\Example23\bin\Debug\Example23.exe
+D:\Старый комп\Флэха\C#\Example23\Example23\bin\Debug\Example23.pdb
+D:\Старый комп\Флэха\C#\Example23\Example23\bin\Debug\Newtonsoft.Json.dll
+D:\Старый комп\Флэха\C#\Example23\Example23\bin\Debug\Newtonsoft.Json.xml
+D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\MessagingToSlack.csprojAssemblyReference.cache
+D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\MessagingToSlack.csproj.CoreCompileInputs.cache
+D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\MessagingToSlack.csproj.CopyComplete
+D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\Example23.exe
+D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\Example23.pdb
