@@ -1,7 +1,6 @@
-﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
+﻿using MessagingToSlack;
+using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
@@ -20,68 +19,53 @@ namespace Example23
         }
 
 
-
-        public static async Task SendExceptionAsync()
+        public static string SendException()
         {
             try
             {
-                //var proxy = ProxyActivation.CreateConnection();
-
-                var info = new Info
+                var send = Task.Run(async () =>
                 {
-                    channel = "GDP5T7PPT",
-                    text = ExceptionSerializer(FirstLevelException()).ToString()
-                };
+                    await SendExceptionAsync();
+                    return "Sending done";
+                });
 
-                var infoJSON = JsonConvert.SerializeObject(info);
-
-                var request = (HttpWebRequest)WebRequest.Create("https://slack.com/api/chat.postMessage");
-                request.Method = "POST";
-                //request.Proxy = proxy;
-                request.ContentType = "application/json";
-                request.ContentLength = Encoding.UTF8.GetBytes(infoJSON).Length;
-                request.Headers.Add("Authorization: Bearer xoxp-465195059089-465800022834-478239920402-98de8f27c1b06d6abd3a4f280f4d25e9");
-
-                using (var stream = new StreamWriter(request.GetRequestStream()))
-                {
-                    await stream.WriteAsync(infoJSON);
-                    await stream.FlushAsync();
-                    stream.Close();
-                }
+                return send.Result;
             }
             catch (Exception exception)
             {
                 Console.WriteLine($"Main Error: {exception}");
             }
+
+            return null;
         }
 
 
 
-        public static void SendException()
+        public static async Task SendExceptionAsync()
         {
             try
             {
-                //var proxy = ProxyActivation.CreateConnection();
+               // var proxy = ProxyActivation.CreateConnection();
 
                 var info = new Info
                 {
-                    channel = "GDP5T7PPT",
-                    text = ExceptionSerializer(FirstLevelException()).ToString()
+                    channel = Resources.QwiziChannel,
+                    text = ExceptionSerializer(FirstLevelException())
                 };
 
                 var infoJSON = JsonConvert.SerializeObject(info);
 
                 var request = (HttpWebRequest)WebRequest.Create("https://slack.com/api/chat.postMessage");
                 request.Method = "POST";
-                //request.Proxy = proxy;
+               // request.Proxy = proxy;
                 request.ContentType = "application/json";
                 request.ContentLength = Encoding.UTF8.GetBytes(infoJSON).Length;
-                request.Headers.Add("Authorization: Bearer xoxp-465195059089-465800022834-478239920402-98de8f27c1b06d6abd3a4f280f4d25e9");
+                request.Headers.Add($"Authorization: Bearer {Resources.QwiziToken}");
 
                 using (var stream = new StreamWriter(request.GetRequestStream()))
                 {
-                    stream.Write(infoJSON);
-                    stream.Flush();
+                    await stream.WriteAsync(infoJSON);
+                    await stream.FlushAsync();
                     stream.Close();
                 }
             }
@@ -101,6 +85,10 @@ namespace Example23
             }
             catch(Exception exception)
             {
+                if (null != exception.InnerException)
+                {
+                    return exception.InnerException;
+                }
                 return exception;
             }
 
@@ -111,7 +99,21 @@ namespace Example23
 
         private static void SecondLevelException()
         {
-            ThirdLevelException();
+            try
+            {
+                ThirdLevelException();
+            }
+            catch (Exception inner)
+            {
+                try
+                {
+                    var file = File.Open("UnExistingFile", FileMode.Open);
+                }
+                catch
+                {
+                    throw new FileNotFoundException("Outer exception", inner);
+                }
+            }
         }
 
 
@@ -123,33 +125,39 @@ namespace Example23
 
 
 
-        private static JObject ExceptionSerializer(Exception exception)
+        private static string ExceptionSerializer(Exception exception)
         {
             try
             {
-                var stackTrace = new StackTrace(exception, true);
-                var stackFrames = stackTrace.GetFrames();
+                var exceptionList = exception.FlattenHierarchy().ToList();
+                var exceptionBuilder = new StringBuilder();
 
-                var jArray = new JArray();
-                foreach (var frame in stackFrames)
+                foreach (var item in exceptionList)
                 {
-                    jArray.Add(new JObject(
-                        new JProperty("_File Column Number:_", $"{frame.GetFileColumnNumber()}"),
-                        new JProperty("_File Line Number:_", $"{frame.GetFileLineNumber()}"),
-                        new JProperty("_File Name:_", $"{frame.GetFileName()}"),
-                        new JProperty("_Method Name:_", $"{frame.GetMethod().Name}")
-                        ));
+                    var stackTrace = new StackTrace(item, true);
+                    var stackFrames = stackTrace.GetFrames();
+
+                    var traceBuilder = new StringBuilder();
+
+                    foreach (var frame in stackFrames)
+                    {
+                        traceBuilder.AppendLine($"\t\t_File Column Number:_ {frame.GetFileColumnNumber()}")
+                                    .AppendLine($"\t\t_File Line Number:_ {frame.GetFileLineNumber()}")
+                                    .AppendLine($"\t\t_File Name:_ {frame.GetFileName()}")
+                                    .AppendLine($"\t\t_Method Name:_ {frame.GetMethod().Name}")
+                                    .AppendLine("\t\t*/++++++++++++/*");
+                    }
+
+                    exceptionBuilder.AppendLine($"*Date:* {DateTime.Now.ToShortDateString()} {DateTime.Now.ToShortTimeString()}")
+                                    .AppendLine($"*Type:* {item.GetType().FullName}")
+                                    .AppendLine($"*Message:* {item.Message}")
+                                    .AppendLine($"*Source:* {item.Source}")
+                                    .AppendLine($"*Help:* https://stackoverflow.com/search?q={item.GetType().FullName}")
+                                    .AppendLine($"*StackTrace:* \n{traceBuilder.ToString()}")
+                                    .AppendLine("_/-----------------------------/_");
                 }
 
-                var exceptionJSON = new JObject
-                    (
-                        new JProperty("*Date:*", $"{DateTime.Now.ToShortDateString()} {DateTime.Now.ToShortTimeString()}"),
-                        new JProperty("*Type:*", $"{exception.GetType().FullName}"),
-                        new JProperty("*Message:*", $"{exception.Message}"),
-                        new JProperty("*Source:*", $"{exception.Source}"),
-                        new JProperty("*StackTrace:*", jArray)
-                    );
-                return exceptionJSON;
+                return exceptionBuilder.ToString();
             }
             catch(Exception except)
             {

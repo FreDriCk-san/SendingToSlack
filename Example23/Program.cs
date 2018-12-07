@@ -14,7 +14,7 @@ namespace Example23
     {
         static void Main(string[] args)
         {
-            LinkWithSlack.SendException();
+            Console.WriteLine(LinkWithSlack.SendException());
 
             Console.ReadKey();
         }

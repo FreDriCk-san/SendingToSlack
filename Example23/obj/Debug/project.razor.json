@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "d:\\Visual Studio Projects\\C#\\Example23\\Example23\\MessagingToSlack.csproj",
+  "TargetFramework": "v4.5.2",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

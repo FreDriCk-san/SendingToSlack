@@ -8,3 +8,23 @@ D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\MessagingTo
 D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\MessagingToSlack.csproj.CopyComplete
 D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\Example23.exe
 D:\Старый комп\Флэха\C#\Example23\Example23\obj\Debug\Example23.pdb
+F:\C#\Example23\Example23\bin\Debug\Example23.exe.config
+F:\C#\Example23\Example23\obj\Debug\Example23.exe
+F:\C#\Example23\Example23\obj\Debug\Example23.pdb
+F:\C#\Example23\Example23\bin\Debug\Example23.exe
+F:\C#\Example23\Example23\bin\Debug\Example23.pdb
+F:\C#\Example23\Example23\bin\Debug\Newtonsoft.Json.dll
+F:\C#\Example23\Example23\bin\Debug\Newtonsoft.Json.xml
+F:\C#\Example23\Example23\obj\Debug\MessagingToSlack.csprojResolveAssemblyReference.cache
+D:\Visual Studio Projects\C#\Example23\Example23\bin\Debug\Newtonsoft.Json.dll
+D:\Visual Studio Projects\C#\Example23\Example23\bin\Debug\Newtonsoft.Json.xml
+D:\Visual Studio Projects\C#\Example23\Example23\obj\Debug\MessagingToSlack.csprojAssemblyReference.cache
+D:\Visual Studio Projects\C#\Example23\Example23\obj\Debug\MessagingToSlack.csproj.CoreCompileInputs.cache
+D:\Visual Studio Projects\C#\Example23\Example23\obj\Debug\MessagingToSlack.csproj.CopyComplete
+D:\Visual Studio Projects\C#\Example23\Example23\obj\Debug\MessagingToSlack.csproj.GenerateResource.cache
+D:\Visual Studio Projects\C#\Example23\Example23\bin\Debug\MessagingToSlack.exe.config
+D:\Visual Studio Projects\C#\Example23\Example23\bin\Debug\MessagingToSlack.exe
+D:\Visual Studio Projects\C#\Example23\Example23\bin\Debug\MessagingToSlack.pdb
+D:\Visual Studio Projects\C#\Example23\Example23\obj\Debug\MessagingToSlack.Resources.resources
+D:\Visual Studio Projects\C#\Example23\Example23\obj\Debug\MessagingToSlack.exe
+D:\Visual Studio Projects\C#\Example23\Example23\obj\Debug\MessagingToSlack.pdb
